@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ReelSection from './components/ReelSection';
@@ -7,6 +7,7 @@ import ContactSection from './components/ContactSection';
 import { PROJECTS } from './constants';
 
 const App: React.FC = () => {
+  const [heroKey, setHeroKey] = useState(0);
   
   const conceptArtProjects = useMemo(() => 
     PROJECTS.filter(p => p.category === 'Concept Art'), 
@@ -16,12 +17,19 @@ const App: React.FC = () => {
     PROJECTS.filter(p => p.category === '3D Modeling'), 
   []);
 
+  const handleHomeClick = () => {
+    // Reset key to re-trigger animation in Hero
+    setHeroKey(prev => prev + 1);
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="min-h-screen bg-background text-white selection:bg-white/20">
-      <Navbar />
+      <Navbar onHomeClick={handleHomeClick} />
       
       <main>
-        <Hero />
+        <Hero key={heroKey} />
         
         <ReelSection />
 

@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
+import { IconHome } from './Icons';
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  onHomeClick?: () => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const scrollTo = (id: string) => {
@@ -11,13 +16,21 @@ const Navbar: React.FC = () => {
     }
   };
 
+  const handleHomeClick = () => {
+    if (onHomeClick) {
+      onHomeClick();
+    } else {
+      scrollTo('hero');
+    }
+  };
+
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="flex-shrink-0 cursor-pointer flex items-center" onClick={() => scrollTo('hero')}>
-            <div className="border-2 border-white px-3 py-1">
-              <span className="text-xl font-bold text-white tracking-tight">Kyron E.</span>
+          <div className="flex-shrink-0 cursor-pointer flex items-center" onClick={handleHomeClick}>
+            <div className="border-2 border-white p-2 rounded-lg">
+              <IconHome className="w-5 h-5 text-white" />
             </div>
           </div>
           

@@ -10,16 +10,40 @@ const Hero: React.FC = () => {
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-900/20 rounded-full blur-3xl opacity-30 animate-pulse delay-700" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-        <h2 className="text-sm md:text-base font-medium text-gray-500 mb-6 tracking-[0.2em] uppercase">Portfolio 2025</h2>
-        <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-white mb-8 tracking-tight">
-          Kyron <span className="text-white/20">Evangelista</span>
+        <h2 
+          className="text-sm md:text-base font-medium text-gray-500 mb-6 tracking-[0.2em] uppercase opacity-0 animate-fade-in-up" 
+          style={{ animationDelay: '1200ms' }}
+        >
+          Portfolio 2025
+        </h2>
+        
+        <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-white mb-8 tracking-tight flex flex-wrap justify-center gap-4 md:gap-6">
+          <span 
+            className="inline-block opacity-0 animate-flip-in" 
+            style={{ animationDelay: '1500ms' }}
+          >
+            Kyron
+          </span>
+          <span 
+            className="inline-block text-white/20 opacity-0 animate-flip-in" 
+            style={{ animationDelay: '2000ms' }}
+          >
+            Evangelista
+          </span>
         </h1>
-        <p className="max-w-2xl mx-auto text-lg md:text-xl text-gray-400 mb-10 leading-relaxed">
+        
+        <p 
+          className="max-w-2xl mx-auto text-lg md:text-xl text-gray-400 mb-10 leading-relaxed opacity-0 animate-fade-in-up" 
+          style={{ animationDelay: '3200ms' }}
+        >
           Specializing in Concept Art and 3D Character Modeling. <br />
           Bringing imagination to life through digital craftsmanship.
         </p>
         
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mb-12">
+        <div 
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mb-12 opacity-0 animate-fade-in-up"
+          style={{ animationDelay: '3400ms' }}
+        >
           <a href={`mailto:${CONTACT_INFO.email}`} className="text-gray-300 hover:text-white transition-colors border-b border-transparent hover:border-white">
             {CONTACT_INFO.email}
           </a>
@@ -31,7 +55,8 @@ const Hero: React.FC = () => {
 
         <button 
           onClick={() => document.getElementById('concept-art')?.scrollIntoView({ behavior: 'smooth' })}
-          className="group inline-flex items-center gap-2 px-6 py-3 bg-white text-black rounded-full font-bold hover:bg-gray-200 transition-all duration-300 transform hover:scale-105"
+          className="group inline-flex items-center gap-2 px-6 py-3 bg-white text-black rounded-full font-bold hover:bg-gray-200 transition-all duration-300 transform hover:scale-105 opacity-0 animate-fade-in-up"
+          style={{ animationDelay: '3600ms' }}
         >
           View Work
           <IconArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
