@@ -22,7 +22,7 @@ const ReelSection: React.FC = () => {
                   Using Big Buck Bunny as a placeholder for a 3D portfolio reel.
                   In a real deployment, replace this src with the path to the uploaded reel file, e.g. "/reel.mp4"
                */}
-               <source src="/reel.mp4" />
+                <source src="/reel.mp4" type="video/mp4" />
                Your browser does not support the video tag.
              </video>
            </div>
