@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Project } from '../types';
 import ProjectCard from './ProjectCard';
+import Lightbox from './Lightbox';
 
 interface PortfolioSectionProps {
   id: string;
@@ -11,6 +12,22 @@ interface PortfolioSectionProps {
 }
 
 const PortfolioSection: React.FC<PortfolioSectionProps> = ({ id, title, subtitle, projects, bgColor = 'bg-background' }) => {
+  const [selectedProjectIndex, setSelectedProjectIndex] = useState<number>(-1);
+
+  const selectedProject = selectedProjectIndex >= 0 ? projects[selectedProjectIndex] : null;
+
+  const handleNext = () => {
+    if (selectedProjectIndex < projects.length - 1) {
+      setSelectedProjectIndex(prev => prev + 1);
+    }
+  };
+
+  const handlePrev = () => {
+    if (selectedProjectIndex > 0) {
+      setSelectedProjectIndex(prev => prev - 1);
+    }
+  };
+
   return (
     <section id={id} className={`py-20 md:py-32 ${bgColor}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -22,10 +39,26 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ id, title, subtitle
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+            <ProjectCard
+              key={project.id}
+              project={project}
+              onClick={() => setSelectedProjectIndex(projects.findIndex(p => p.id === project.id))}
+            />
           ))}
         </div>
       </div>
+
+      {selectedProject && (
+        <Lightbox
+          imageUrl={selectedProject.imageUrl}
+          title={selectedProject.title}
+          onClose={() => setSelectedProjectIndex(-1)}
+          onNext={handleNext}
+          onPrev={handlePrev}
+          hasNext={selectedProjectIndex < projects.length - 1}
+          hasPrev={selectedProjectIndex > 0}
+        />
+      )}
     </section>
   );
 };

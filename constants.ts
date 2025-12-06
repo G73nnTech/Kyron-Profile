@@ -18,7 +18,8 @@ export const PROJECTS: Project[] = [
     category: 'Concept Art',
     description: 'Concept art drawn for an art collaboration. Models sourced from Sketchfab.',
     tools: [ToolType.PHOTOSHOP, ToolType.BLENDER],
-    imageUrl: 'https://picsum.photos/seed/duck/800/600', 
+    imageUrl: '/image1.png',
+    objectPosition: 'center',
   },
   {
     id: 'concept-drill',
@@ -26,7 +27,8 @@ export const PROJECTS: Project[] = [
     category: 'Concept Art',
     description: 'Concept art drawn for an art collaboration featuring industrial aesthetics.',
     tools: [ToolType.PHOTOSHOP],
-    imageUrl: 'https://picsum.photos/seed/drill/800/600',
+    imageUrl: '/image2.png',
+    objectPosition: 'top',
   },
   {
     id: 'concept-scifi',
@@ -34,7 +36,8 @@ export const PROJECTS: Project[] = [
     category: 'Concept Art',
     description: 'Concept art drawn for a personal project exploring sci-fi armor designs.',
     tools: [ToolType.PHOTOSHOP],
-    imageUrl: 'https://picsum.photos/seed/scifi/600/800', // Portrait
+    imageUrl: '/image3.png', // Portrait
+    objectPosition: 'top',
   },
   {
     id: 'concept-various',
@@ -42,7 +45,7 @@ export const PROJECTS: Project[] = [
     category: 'Concept Art',
     description: 'Various original concept art pieces exploring themes of "Gold and Blood" and character design sheets.',
     tools: [ToolType.PHOTOSHOP],
-    imageUrl: 'https://picsum.photos/seed/witch/800/600',
+    imageUrl: '/image4.png',
   },
   {
     id: 'fan-art',
@@ -50,9 +53,9 @@ export const PROJECTS: Project[] = [
     category: 'Concept Art',
     description: 'Exploration of different art styles through fan art creation.',
     tools: [ToolType.PHOTOSHOP],
-    imageUrl: 'https://picsum.photos/seed/fanart/800/400',
+    imageUrl: '/image5.png',
   },
-  
+
   // 3D Section
   {
     id: '3d-maid',
@@ -60,7 +63,8 @@ export const PROJECTS: Project[] = [
     category: '3D Modeling',
     description: 'Original character design and modeling for a personal project. Includes Full Quality and Toon Shaded renders.',
     tools: [ToolType.BLENDER, ToolType.MARVELOUS_DESIGNER, ToolType.PHOTOSHOP, ToolType.SUBSTANCE_PAINTER],
-    imageUrl: 'https://picsum.photos/seed/maid/800/600',
+    imageUrl: '/image6.png',
+    objectPosition: 'top',
   },
   {
     id: '3d-creature',
@@ -68,7 +72,7 @@ export const PROJECTS: Project[] = [
     category: '3D Modeling',
     description: 'Original character and design for a personal project featuring organic and hard surface modeling.',
     tools: [ToolType.BLENDER, ToolType.SUBSTANCE_PAINTER, ToolType.PHOTOSHOP],
-    imageUrl: 'https://picsum.photos/seed/lizard/800/600',
+    imageUrl: '/image7.png',
   },
   {
     id: '3d-diorama',
@@ -76,7 +80,7 @@ export const PROJECTS: Project[] = [
     category: '3D Modeling',
     description: 'A complete scene composition featuring previous character assets.',
     tools: [ToolType.BLENDER],
-    imageUrl: 'https://picsum.photos/seed/diorama/800/600',
+    imageUrl: '/image13.png',
   },
   {
     id: '3d-megacat',
@@ -84,7 +88,8 @@ export const PROJECTS: Project[] = [
     category: '3D Modeling',
     description: 'Professional character modeling work commissioned for Mega Cat Studios.',
     tools: [ToolType.ZBRUSH, ToolType.SUBSTANCE_PAINTER, ToolType.BLENDER, ToolType.MARVELOUS_DESIGNER],
-    imageUrl: 'https://picsum.photos/seed/megacat/800/1000', // Portrait
+    imageUrl: '/image8.png', // Portrait
+    objectPosition: 'top',
   },
   {
     id: '3d-prop',
@@ -92,7 +97,7 @@ export const PROJECTS: Project[] = [
     category: '3D Modeling',
     description: 'Detailed prop study referenced from the game Azur Lane. Focus on texturing and hard surface.',
     tools: [ToolType.BLENDER, ToolType.SUBSTANCE_PAINTER],
-    imageUrl: 'https://picsum.photos/seed/wrench/800/500',
+    imageUrl: '/image9.png',
   },
   {
     id: '3d-weapon',
@@ -100,7 +105,7 @@ export const PROJECTS: Project[] = [
     category: '3D Modeling',
     description: 'High fidelity weapon topology study.',
     tools: [ToolType.BLENDER],
-    imageUrl: 'https://picsum.photos/seed/gun/800/500',
+    imageUrl: '/image10.png',
   },
   {
     id: '3d-arch',
@@ -108,7 +113,7 @@ export const PROJECTS: Project[] = [
     category: '3D Modeling',
     description: 'Stylized architecture study based on reference by @baishaoxia on ArtStation.',
     tools: [ToolType.BLENDER],
-    imageUrl: 'https://picsum.photos/seed/house/800/600',
+    imageUrl: '/image11.png',
   },
   {
     id: '3d-concept',
@@ -116,6 +121,6 @@ export const PROJECTS: Project[] = [
     category: '3D Modeling',
     description: 'Quick concept modeling for environments and props (Arcade, Cars, Cat Tower).',
     tools: [ToolType.MAYA],
-    imageUrl: 'https://picsum.photos/seed/maya/800/600',
+    imageUrl: '/image12.png',
   }
 ];

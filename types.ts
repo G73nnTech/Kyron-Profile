@@ -14,6 +14,7 @@ export interface Project {
   description: string;
   tools: ToolType[];
   imageUrl: string;
+  objectPosition?: string;
   subText?: string;
   link?: string;
 }
