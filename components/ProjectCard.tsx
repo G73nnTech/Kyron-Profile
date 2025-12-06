@@ -11,7 +11,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
   return (
     <div
       onClick={() => onClick(project)}
-      className="group relative bg-surface rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-white/5 transition-all duration-300 border border-white/5 flex flex-col h-full cursor-pointer"
+      className="group relative bg-surface rounded-xl overflow-hidden hover:shadow-[0_0_20px_rgba(255,255,255,0.15)] hover:border-white/50 transition-all duration-300 border border-white/10 flex flex-col h-full cursor-pointer"
     >
       {/* Image Container */}
       <div className="relative w-full overflow-hidden aspect-[4/3]">

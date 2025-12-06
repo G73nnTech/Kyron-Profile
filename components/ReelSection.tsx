@@ -1,6 +1,52 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 
 const ReelSection: React.FC = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const videoElement = videoRef.current;
+    if (!videoElement) return;
+
+    // Custom event handler for clicking "Reel" or "View Work"
+    const handlePlayReel = () => {
+      videoElement.muted = false;
+      videoElement.currentTime = 0;
+      videoElement.play().catch((error) => {
+        console.log('Play prevented:', error);
+      });
+    };
+
+    window.addEventListener('play-reel', handlePlayReel);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Only auto-play if paused. If it's already playing (e.g. from click), don't interfere.
+            if (videoElement.paused) {
+              videoElement.muted = true; // Default to muted for scroll-based discovery
+              videoElement.play().catch((error) => {
+                console.log('Autoplay prevented:', error);
+              });
+            }
+          } else {
+            videoElement.pause();
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(videoElement);
+
+    return () => {
+      window.removeEventListener('play-reel', handlePlayReel);
+      if (videoElement) {
+        observer.unobserve(videoElement);
+      }
+    };
+  }, []);
+
   return (
     <section id="reel" className="py-20 bg-surface/30 border-b border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -9,23 +55,26 @@ const ReelSection: React.FC = () => {
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">A showcase of my recent work in character modeling and concept design.</p>
           <div className="w-24 h-1 bg-blue-500 mx-auto mt-6 rounded-full" />
         </div>
-        
+
         <div className="relative w-full max-w-5xl mx-auto rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-black">
-           <div className="aspect-video w-full">
-             <video 
-               className="w-full h-full object-contain"
-               controls
-               preload="metadata"
-               playsInline
-             >
-               {/* 
+          <div className="aspect-video w-full">
+            <video
+              ref={videoRef}
+              className="w-full h-full object-contain"
+              controls
+              muted // Muted is usually required for autoplay
+              loop
+              preload="metadata"
+              playsInline
+            >
+              {/* 
                   Using Big Buck Bunny as a placeholder for a 3D portfolio reel.
                   In a real deployment, replace this src with the path to the uploaded reel file, e.g. "/reel.mp4"
                */}
-                <source src="/reel.mp4" type="video/mp4" />
-               Your browser does not support the video tag.
-             </video>
-           </div>
+              <source src="/reel.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
         </div>
       </div>
     </section>

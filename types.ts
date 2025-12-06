@@ -23,5 +23,4 @@ export interface ContactInfo {
   phone: string;
   email: string;
   altEmail: string;
-  linkedIn: string; // Placeholder link since specific URL wasn't fully readable or provided as text
 }

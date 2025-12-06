@@ -11,6 +11,9 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
   const scrollTo = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
+      if (id === 'reel') {
+        window.dispatchEvent(new Event('play-reel'));
+      }
       element.scrollIntoView({ behavior: 'smooth' });
       setIsOpen(false);
     }
@@ -33,14 +36,14 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
               <IconHome className="w-5 h-5 text-white" />
             </div>
           </div>
-          
+
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
               <button onClick={() => scrollTo('reel')} className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Reel</button>
               <button onClick={() => scrollTo('concept-art')} className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Concept Art</button>
               <button onClick={() => scrollTo('3d-modeling')} className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">3D Modeling</button>
               <button onClick={() => scrollTo('contact')} className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</button>
-              <button 
+              <button
                 onClick={() => scrollTo('contact')}
                 className="bg-white text-black px-4 py-2 rounded-full text-sm font-bold hover:bg-gray-200 transition-colors"
               >
@@ -48,7 +51,7 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
               </button>
             </div>
           </div>
-          
+
           <div className="-mr-2 flex md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -78,7 +81,7 @@ const Navbar: React.FC<NavbarProps> = ({ onHomeClick }) => {
             <button onClick={() => scrollTo('concept-art')} className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left">Concept Art</button>
             <button onClick={() => scrollTo('3d-modeling')} className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left">3D Modeling</button>
             <button onClick={() => scrollTo('contact')} className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left">Contact</button>
-            <button 
+            <button
               onClick={() => scrollTo('contact')}
               className="bg-white text-black block w-full text-left px-3 py-2 rounded-md text-base font-bold mt-4"
             >

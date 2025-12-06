@@ -4,7 +4,6 @@ export const CONTACT_INFO: ContactInfo = {
   phone: '(+63) 969 136 6033',
   email: 'kyron_evangelista@dlsu.edu.ph',
   altEmail: 'dddesuu@gmail.com',
-  linkedIn: 'https://www.linkedin.com/in/kyron-evangelista', // Assumed structure based on name
 };
 
 // Using a placeholder image that matches the description "Young man with glasses"

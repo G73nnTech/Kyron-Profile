@@ -50,8 +50,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ id, title, subtitle
 
       {selectedProject && (
         <Lightbox
-          imageUrl={selectedProject.imageUrl}
-          title={selectedProject.title}
+          project={selectedProject}
           onClose={() => setSelectedProjectIndex(-1)}
           onNext={handleNext}
           onPrev={handlePrev}
